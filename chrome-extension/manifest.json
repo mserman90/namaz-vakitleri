@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Ezan & Namaz Vakitleri (Türkiye)",
+  "version": "1.0.0",
+  "description": "Türkiye'nin 81 iline göre Diyanet namaz vakitleri, bir sonraki vakte kalan canlı geri sayım ve ezan bildirimleri.",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    },
+    "default_title": "Namaz Vakitleri"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://api.aladhan.com/*"
+  ]
+}

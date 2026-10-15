@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+build/
+dist/
+*.spec
+
+# Yerel Veri ve Önbellek
+cache.json
+
+# İşletim Sistemi
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# IDE / Editör
+.vscode/
+.idea/
+*.swp

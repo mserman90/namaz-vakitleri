@@ -1,0 +1,386 @@
+:root {
+  --bg-main: #0f172a;
+  --bg-card: #1e293b;
+  --bg-card-hover: #273549;
+  --bg-hero: #132235;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border-color: #334155;
+  --accent-green: #10b981;
+  --accent-green-bg: rgba(16, 185, 129, 0.15);
+  --accent-gold: #f59e0b;
+  --accent-gold-bg: rgba(245, 158, 11, 0.15);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] {
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+  --bg-hero: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --border-color: #cbd5e1;
+  --accent-green: #059669;
+  --accent-green-bg: #ecfdf5;
+  --accent-gold: #d97706;
+  --accent-gold-bg: #fffbeb;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  user-select: none;
+}
+
+body {
+  width: 380px;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.app-container {
+  padding: 14px;
+  position: relative;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo-icon {
+  font-size: 20px;
+}
+
+.logo-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.province-select {
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  max-width: 125px;
+}
+
+.icon-btn {
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  width: 28px;
+  height: 28px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.1s, background-color 0.2s;
+}
+
+.icon-btn:hover {
+  background-color: var(--bg-card-hover);
+}
+
+.icon-btn:active {
+  transform: scale(0.95);
+}
+
+/* Date Bar */
+.date-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.date-pill {
+  flex: 1;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 5px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hijri-pill {
+  color: var(--accent-gold);
+}
+
+/* Hero Card */
+.hero-card {
+  background-color: var(--bg-hero);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 14px;
+}
+
+.countdown-title {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.timer-display {
+  font-family: "Consolas", "Cascadia Code", monospace;
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--accent-green);
+  margin-bottom: 8px;
+}
+
+.progress-track {
+  width: 100%;
+  height: 6px;
+  background-color: var(--bg-card);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: var(--accent-green);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.summary-info {
+  font-size: 11.5px;
+  color: var(--text-secondary);
+}
+
+.highlight-curr {
+  color: var(--accent-green);
+  font-weight: 700;
+}
+
+.highlight-next {
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+
+/* Prayer Grid (3x2) */
+.prayers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.prayer-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 8px 6px;
+  text-align: center;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.prayer-card.is-active {
+  border-color: var(--accent-green);
+  background-color: var(--accent-green-bg);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.25);
+}
+
+.prayer-card.is-next {
+  border-color: var(--accent-gold);
+  background-color: var(--accent-gold-bg);
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.25);
+}
+
+.prayer-icon {
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+.prayer-name {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.prayer-time {
+  font-family: "Consolas", monospace;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.prayer-badge {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 4px;
+  display: inline-block;
+  opacity: 0;
+}
+
+.prayer-card.is-active .prayer-badge {
+  background-color: var(--accent-green);
+  color: #ffffff;
+  opacity: 1;
+}
+
+.prayer-card.is-next .prayer-badge {
+  background-color: var(--accent-gold);
+  color: #000000;
+  opacity: 1;
+}
+
+/* Quote Card */
+.quote-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.quote-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.quote-type {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.quote-text {
+  font-size: 12px;
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.quote-source {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-align: right;
+  color: var(--text-muted);
+}
+
+/* Settings Drawer */
+.settings-drawer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-main);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  z-index: 50;
+}
+
+.settings-drawer.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.drawer-header h3 {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.drawer-close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.drawer-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+}
+
+.setting-select {
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 4px 6px;
+  font-size: 11.5px;
+  outline: none;
+}

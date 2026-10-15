@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ezan & Namaz Vakitleri</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo-box">
+        <span class="logo-icon">🕌</span>
+        <h1 class="logo-title">Namaz Vakti</h1>
+      </div>
+      <div class="header-actions">
+        <!-- 81 İl Seçimi -->
+        <select id="provinceSelect" class="province-select" aria-label="İl Seçimi"></select>
+        
+        <button id="btnRefresh" class="icon-btn" title="Vakitleri Yenile">🔄</button>
+        <button id="btnTheme" class="icon-btn" title="Tema Değiştir">🌙</button>
+        <button id="btnSettings" class="icon-btn" title="Ayarlar">⚙️</button>
+      </div>
+    </header>
+
+    <!-- Tarih Şeridi -->
+    <div class="date-bar">
+      <div class="date-pill miladi-pill" id="miladiDate">📅 Yükleniyor...</div>
+      <div class="date-pill hijri-pill" id="hijriDate">🌙 Hicri Tarih</div>
+    </div>
+
+    <!-- Hero Geri Sayım Kartı -->
+    <section class="hero-card">
+      <div class="countdown-title" id="countdownTitle">Sonraki Vakte Kalan Süre</div>
+      <div class="timer-display" id="timerDisplay">00:00:00</div>
+      
+      <!-- İlerleme Çubuğu -->
+      <div class="progress-track">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <div class="summary-info" id="summaryInfo">
+        Şu Anki: <span class="highlight-curr" id="currPrayerName">--</span> • 
+        Sonraki: <span class="highlight-next" id="nextPrayerName">--</span> (<span id="nextPrayerTime">--:--</span>)
+      </div>
+    </section>
+
+    <!-- 6 Namaz Vakti Grid -->
+    <section class="prayers-grid" id="prayersGrid">
+      <!-- 6 kart JS ile dinamik doldurulur -->
+    </section>
+
+    <!-- Günün Ayeti / Hadisi -->
+    <section class="quote-card">
+      <div class="quote-header">
+        <span class="quote-sparkle">✨</span>
+        <span class="quote-type" id="quoteType">Günün Ayet-i Kerîmesi</span>
+      </div>
+      <p class="quote-text" id="quoteText">“Şüphesiz namaz, müminlere belirli vakitlerde farz kılınmıştır.”</p>
+      <div class="quote-source" id="quoteSource">— Nisâ Sûresi, 103</div>
+    </section>
+
+    <!-- Ayarlar Paneli (Açılır-Kapanır Çekmece) -->
+    <div class="settings-drawer" id="settingsDrawer">
+      <div class="drawer-header">
+        <h3>⚙️ Uygulama Tercihleri</h3>
+        <button id="btnCloseSettings" class="drawer-close">&times;</button>
+      </div>
+      <div class="drawer-body">
+        <label class="setting-item">
+          <input type="checkbox" id="chkNotifyPrayer" />
+          <span>Vakit girdiğinde masaüstü bildirimi göster</span>
+        </label>
+
+        <div class="setting-row">
+          <span>Önceden hatırlatıcı:</span>
+          <select id="selectRemindMinutes" class="setting-select">
+            <option value="0">Kapalı</option>
+            <option value="5">5 dakika önce</option>
+            <option value="10">10 dakika önce</option>
+            <option value="15">15 dakika önce</option>
+            <option value="30">30 dakika önce</option>
+          </select>
+        </div>
+
+        <div class="setting-row">
+          <span>Uzantı simgesi rozet metni:</span>
+          <select id="selectBadgeMode" class="setting-select">
+            <option value="countdown">Kalan Süre (Örn: 1s24d)</option>
+            <option value="prayer_name">Sonraki Vakit Adı (Örn: ÖĞLE)</option>
+            <option value="off">Kapalı</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
