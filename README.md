@@ -57,6 +57,19 @@ Uygulamanın tarayıcınızda doğrudan çalışmasını istiyorsanız:
 4. [`chrome-extension`](file:///C:/Users/mert/.gemini/antigravity/scratch/namaz-vakti/chrome-extension) klasörünü seçin.
 5. Tarayıcı araç çubuğundaki cami simgesine tıklayarak vakitleri ve kalan süreyi anında görüntüleyin! Rozet metni (badge) sayesinde simge üzerinde kalan süre doğrudan görüntülenir.
 
+### 5. Yöntem: Android Mobil Uygulaması (APK)
+Jetpack Compose ve Material 3 ile geliştirilmiş yerel Android uygulaması:
+- Hazır kurulum dosyası: [**`NamazVakti.apk`**](file:///C:/Users/mert/.gemini/antigravity/scratch/namaz-vakti/NamazVakti.apk)
+- Telefonunuza veya emülatörünüze yüklemek için:
+  ```powershell
+  adb install NamazVakti.apk
+  ```
+- Proje kaynak kodları [`android-app`](file:///C:/Users/mert/.gemini/antigravity/scratch/namaz-vakti/android-app) klasöründedir. Yeniden derlemek için:
+  ```powershell
+  cd android-app
+  ./gradlew.bat assembleDebug
+  ```
+
 ---
 
 ## ⚙️ Yapılandırma ve Ayarlar (`config.json`)
